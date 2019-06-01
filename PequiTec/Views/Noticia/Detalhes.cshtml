@@ -1,0 +1,53 @@
+﻿@model PequiTec.Models.Noticia
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Detalhes da Noticia";
+}
+
+<div class="well">
+    <div class="container">
+        <div>
+            @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Editar", "EditarNoticia", new { id = @Model.ID_Noticia }, new { @class = "btn btn-default" })
+        </div>
+        <h2 class="text-center">Detalhes da Noticia</h2>
+        Data Noticia : @Html.DisplayName(Model.Data_Noticia.ToString("dd/MM/yyyy"))
+        <hr />
+        <div class="">
+            <div class="col-md-10 col-md-offset-1 mt-20">
+                @Html.DisplayNameFor(model => model.Titulo)
+            </div>
+            <div class="col-md-10 col-md-offset-1 TituloNoticiaDetalhes mb-20">
+                @Html.DisplayFor(model => model.Titulo)
+            </div>
+        </div>
+
+        <div class="mb-mt-10">
+            <div class="col-md-10  col-md-offset-1 mt-20">
+                @Html.DisplayNameFor(model => model.Descricao)
+
+            </div>
+            <div class="col-md-10  col-md-offset-1 mb-20">
+                <textarea disabled class="discucaoNoticia">@Html.DisplayFor(model => model.Descricao)</textarea>
+            </div>
+        </div>
+
+        <div class="mb-mt-10">
+            <label class="col-md-10 col-md-offset-1 mt-20">Imagem</label>
+            <div class="col-md-10  col-md-offset-1 mb-20">
+                <div class="container">
+                    <div class="col-md-6">
+                        <div id="MensagemErro"></div>
+                        <div class="form-group">
+                            <img src="~/Content/img/imgNoticia/@Html.DisplayFor(model => model.Anexo)" class="Img-Descricao" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

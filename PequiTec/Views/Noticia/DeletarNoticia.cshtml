@@ -1,0 +1,21 @@
+﻿@model PequiTec.Models.Noticia
+
+<h3 class="text-center">Deletar Noticia:</h3>
+<br />
+<h4 class="text-center">
+    @Html.DisplayFor(model => model.Titulo)
+</h4>
+
+@using (Ajax.BeginForm("DeletarNoticia", "Noticia", new AjaxOptions
+{
+    HttpMethod = "POST",
+    OnSuccess = "FecharModal"
+}))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ID_Noticia)
+    <div class="form-actions no-color">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <input id="idDelete" type="submit" value="Deletar" class="btn btn-danger" />
+    </div>
+}

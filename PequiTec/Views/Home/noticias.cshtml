@@ -1,0 +1,98 @@
+﻿@model IEnumerable<PequiTec.Models.Noticia>
+
+<!-- Inicio Noticia -->
+
+<div class="container text-center" id="noticias">
+    <h2 class="mx-auto mt-5 mb-5">
+        Noticias sobre PEQUITEC
+    </h2>
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <div class="row">
+                <div class="box box-solid">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div id="carousel-example-genericN" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                @{
+                                    int cont = 0;
+                                    while (cont < Model.Count())
+                                    {
+                                        if (cont == 0)
+                                        {
+                                            <li data-target="#myCarousel" data-slide-to="@cont" class="active"></li>
+                                        }
+                                        else
+                                        {
+                                            <li data-target="#myCarousel" data-slide-to="@cont"></li>
+                                        }
+                                        cont++;
+                                    }
+                                }
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                @{
+                                    int contador = 0;
+                                    string classAtivo = "";
+                                    foreach (var Item in Model)
+                                    {
+                                        if (contador == 0)
+                                        {
+                                            classAtivo = "item active";
+                                        }
+                                        else
+                                        {
+                                            classAtivo = "item";
+                                        }
+                                        <div class="@classAtivo">
+                                            @MvcHtmlString.Create(Ajax.ActionLink("Spag", "DetalhesNoticia", new { id = Item.ID_Noticia }, new AjaxOptions() { UpdateTargetId = "detalhesModal", OnSuccess = "chamaModal" }).ToHtmlString().Replace("Spag", "<img src=\"" + Url.Content(Item.Anexo) + "\" />"))
+                                        </div>
+
+                                        contador++;
+                                    }
+                                }
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-genericN" data-slide="prev">
+                                <span class="fa fa-angle-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-genericN" data-slide="next">
+                                <span class="fa fa-angle-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <br />
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="ModalNoticia">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body" id="detalhesModal">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fim Noticia -->
+
+<script type="text/javascript">
+    $(function () {
+        $("#imgNoticia").change($("#imgNoticia").click(function () {
+            $("#imgModal").click();
+        }));
+    });
+    function chamaModal() {
+        $("#ModalNoticia").modal("show");
+    }
+    function FecharModal() {
+        $("#ModalNoticia").modal("hide");
+        $("#page-top").removeAttr("style", "padding-right");
+    }
+</script>

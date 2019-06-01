@@ -1,0 +1,80 @@
+﻿@model PequiTec.Models.Noticia
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "EditarNoticia";
+}
+
+<div class="well">
+    @using (Html.BeginForm("EditarNoticia", "Noticia", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div>
+                @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-default" })
+            </div>
+            <h4>Noticia</h4>
+            <hr />
+
+            @Html.HiddenFor(model => model.ID_Noticia)
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "col-md-10  col-md-offset-1" })
+                <div class="col-md-10  col-md-offset-1">
+                    @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "TituloNoticia" } })
+                    @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "col-md-10 col-md-offset-1" })
+                <div class="col-md-10 col-md-offset-1">
+                    @Html.TextAreaFor(model => model.Descricao, new { @class = "discucaoNoticia" })
+                    @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-10 col-md-offset-1">Imagem</label>
+                <div class="col-md-10">
+                    <div class="container">
+                        <div class="col-md-6 col-md-offset-2">
+                            <div class="text-center">
+                                <button class="btn btn-primary" id="btnArquivoNovo" data-element="#AtualAnexo">Substituir Arquivo</button>
+                                <button class="btn btn-success" id="btnArquivoAtual" data-element="#novoAnexo" disabled="disabled">Deixar o Arquivo Atual</button>
+                            </div>
+                            <div class="form-group display-none" id="novoAnexo">
+                                <div id="MensagemErro"></div>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-default btn-file">
+                                            Buscar… <input type="file" name="arquivo" id="imgInp" class="btn btn-default btn-file" />
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" readonly placeholder="Arraste a imagem para cima do botao ou click para buscar" id="nameAnexo">
+                                </div>
+                                <img id='img-upload' class="HideImg" />
+                            </div>
+                            <div class="imgAtual" id="AtualAnexo">
+                                <h3>Imagem atual</h3>
+                                <img src="~/Content/img/imgNoticia/@Html.DisplayFor(model => model.Anexo)" class="Img-Descricao" />
+                            </div>
+                        </div>
+                    </div>
+                    <input id="Anexo" name="anexoAtual" type="hidden" value="@Model.Anexo.ToString()">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-10 col-md-10">
+                    <input type="submit" value="Salvar Alterações" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

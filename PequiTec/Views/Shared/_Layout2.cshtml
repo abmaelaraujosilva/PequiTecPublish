@@ -1,0 +1,114 @@
+﻿@using System.Web.Optimization
+@using WebHelpers.Mvc5.Enum
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    @Styles.Render("~/Bundles2/css")
+    <!-- JS -->
+    <script src="~/Scripts/jquery.min.js"></script>
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <a class="menu-toggle rounded" href="#">
+        <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a class="js-scroll-trigger" href="#page-top">
+                    <div class="col-md-12 text-sm-center">
+                    </div>
+                    <img src="~/Content/img/PEQUITEC3.fw.png" width="170" height="50" />
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#noticias">Noticia</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#sobre">Sobre</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#objetivo">Objetivo</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#historia">Historia</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#organograma">Organograma</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#projetos">Projetos</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#carosel">Galeria</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#logos">Quem esta no PEQUITEC</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#comoIngressar">Como Ingressar</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#servicos">Servicos</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#contatos">Contatos</a>
+            </li>
+        </ul>
+    </nav>
+    @RenderBody()
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">© Centro Universitário ITPAC</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline-item">
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white mr-3" href="#">
+                                <i class="icon-social-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white mr-3" href="#">
+                                <i class="icon-social-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white" href="#">
+                                <i class="icon-social-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li>
+                            Desenvolvido por <a href="#">N.E.R.D.S.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+    <script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
+    <script src="@EnumHandler.HandlerUrl"></script>
+    @Scripts.Render("~/Bundles2/js")
+    @RenderSection("ViewSpecificJavascript", required: false)
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿@model PequiTec.Models.Noticia
+
+<div class="container">
+    <div class="text-right">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    </div>
+    <h2 class="text-center">@Html.DisplayFor(model => model.Titulo)</h2>
+    Data Noticia : @Html.DisplayName(Model.Data_Noticia.ToString("dd/MM/yyyy"))
+    <hr />
+    <div class="container-center">
+        <div>
+            <img src="~/Content/img/imgNoticia/@Html.DisplayFor(model => model.Anexo)" class="Img-Descricao" />
+        </div>
+        <div>
+            <p>@Html.DisplayFor(model => model.Descricao)</p>
+        </div>
+    </div>
+</div>

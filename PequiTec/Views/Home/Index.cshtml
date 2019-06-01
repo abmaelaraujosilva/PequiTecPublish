@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "PEQUITEC - Parque de Empreendedorismo Qualificação e Inovação";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/simple-line-icons.css" rel="stylesheet" />
+    <link href="~/Content/stylish-portfolio.min.css" rel="stylesheet" />
+    <link href="~/Content/Organograma.css" rel="stylesheet" />
+    <link href="~/Content/Pequitec.css" rel="stylesheet" />
+    <link href="~/Content/carosel.css" rel="stylesheet" />
+    <link href="~/Content/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/agency.min.css" rel="stylesheet" />*@
+
+<script src="~/Scripts/jquery.min.js"></script>
+
+<!-- Header -->
+<header class="masthead d-flex">
+    <div class="container text-center my-auto">
+        <div class="col-md-12 col-m text-md-center mb-0">
+            <img src="~/Content/img/PEQUITE_BRANCO.fw.png" style="width:48%;" />
+        </div>
+        <div class="titulo mb-3">
+            @*'titulo' é uma classe criada apenas para essa div*@
+            Um novo fruto brota no Centro Universitário ITPAC e que marca o início de uma nova era para o desenvolvimento de Araguaína e região através do Empreendedorismo, Tecnologia e Inovação
+        </div>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#noticias">Conheça mais</a>
+    </div>
+    <div class="overlay"></div>
+</header>
+@Html.Action("noticias")
+@RenderPage("sobre.cshtml")
+@RenderPage("objetivo.cshtml")
+@RenderPage("historia.cshtml")
+@RenderPage("organograma.cshtml")
+@RenderPage("projetos.cshtml")
+@RenderPage("carosel.cshtml")
+@RenderPage("logos.cshtml")
+@RenderPage("comoIngressar.cshtml")
+@RenderPage("servicos.cshtml")
+@RenderPage("contatos.cshtml")
+
+

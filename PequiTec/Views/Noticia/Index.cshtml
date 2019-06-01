@@ -1,0 +1,71 @@
+﻿@model IEnumerable<PequiTec.Models.Noticia>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+
+    ViewBag.Title = "Listar Noticia";
+}
+
+<div class="container">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div>
+                    @Html.ActionLink("Criar Nova Noticia", "Create", null, new { @class = "btn btn-default" })
+                </div>
+                <h4 class="text-center">Lista de Noticias</h4>
+                <br />
+                <table id="DTNoticia" class="table table-striped table-bordered dataTable no-footer">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Titulo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Data_Noticia)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Descricao)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Anexo)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="limitarCaracteres">
+                                @Html.DisplayFor(modelItem => item.Titulo)
+                            </td>
+                            <td class="limitarCaracteres">
+                                @Html.DisplayName(item.Data_Noticia.ToString("dd/MM/yyyy"))
+                            </td>
+                            <td class="limitarCaracteres">
+                                @Html.DisplayFor(modelItem => item.Descricao)
+                            </td>
+                            <td class="limitarCaracteres">
+                                <img src="~/Content/img/imgNoticia/@Html.DisplayFor(modelItem => item.Anexo)" class="imgResolucao" />
+                            </td>
+                            <td class="text-center">
+
+                                @Html.ActionLink(" ", "EditarNoticia", new { id = item.ID_Noticia }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                                @Html.ActionLink(" ", "Detalhes", new { id = item.ID_Noticia }, new { @class = "btn btn-warning glyphicon glyphicon-align-left" })
+                                @Ajax.ActionLink(" ", "DeletarNoticia", new { id = item.ID_Noticia }, new AjaxOptions
+                                {
+                                    UpdateTargetId = "deletarModal",
+                                    OnSuccess = "chamaModal"
+                                }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
