@@ -1,0 +1,3 @@
+# PequiTecPublish
+Versão mais Atual, com IdentityNoEf, Sistema de Login, DataTable com Bootstrap, pattern repository, Template Bootstrap, ...
+<img src="https://github.com/abmaelaraujosilva/PequiTecPublish/blob/master/PequiTec/Content/img/PEQUI1.PNG" />
