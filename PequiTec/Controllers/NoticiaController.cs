@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace PequiTec.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class NoticiaController : Controller
     {
         NoticiaRepositorio _NREP = new NoticiaRepositorio();

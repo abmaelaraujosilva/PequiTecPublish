@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        @if (!string.IsNullOrWhiteSpace(ViewBag.Title))
+        {
+            @ViewBag.Title@: -
+        }
+        PequiTec
+    </title>
+    @Styles.Render("~/Bundles3/css")
+</head>
+<body class="hold-transition login-page">
+    <div>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/Bundles3/js")
+</body>
+</html>
+

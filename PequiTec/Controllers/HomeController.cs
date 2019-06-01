@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace PequiTec.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         NoticiaRepositorio _NREP = new NoticiaRepositorio();

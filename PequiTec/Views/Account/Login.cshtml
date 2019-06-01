@@ -1,0 +1,80 @@
+﻿@model PequiTec.Models.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="~/Images/ASURI1.fw.png"><b>PequiTec</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <h2><p class="login-box-msg ">Sessão Administrativa</p></h2>
+
+            <form action="../../index2.html" method="post">
+                <div class="form-group has-feedback">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-lg-5">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            <span class="glyphicon glyphicon-envelope form-control-feedback  col-lg-push-10"></span>
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <div class="col-lg-5">
+                        <label class="control-label col-md-2">Senha</label>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control " } })
+                        <span class="glyphicon glyphicon-lock form-control-feedback col-lg-push-10"></span>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="col-lg-12">
+                            <br />
+
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-12 col-lg-12">
+                        <input type="submit" value="Entrar" class="btn btn-primary btn-block btn-flat" />
+                        @*<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>*@
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+            @Html.ActionLink("Recuperar senha", "ForgotPassword", "Account")
+            <br />
+            @Html.ActionLink("Registrar", "Register", "Account")
+
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
+
+}

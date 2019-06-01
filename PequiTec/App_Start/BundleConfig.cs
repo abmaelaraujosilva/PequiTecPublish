@@ -21,17 +21,22 @@ namespace PequiTec.App_Start
                 .Include("~/Content/css/skins/skin-blue.css"));
 
             bundles.Add(new StyleBundle("~/Bundles2/css")
-                .Include("~/Content/bootstrap.min.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/bootstrap.css")
                 .Include("~/Content/css/font-awesome.min.css", new CssRewriteUrlTransformAbsolute())
-                .Include("~/Content/simple-line-icons.css")
-                .Include("~/Content/stylish-portfolio.min.css")
+                .Include("~/Content/stylish-portfolio.css")
+                .Include("~/Content/css/simple-line-icons.css", new CssRewriteUrlTransformAbsolute())
                 .Include("~/Content/Organograma.css")
                 .Include("~/Content/Pequitec.css")
                 .Include("~/Content/carosel.css")
-                .Include("~/Content/css/AdminLTE.min.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/AdminLTE.css")
                 .Include("~/Content/agency.min.css"));
 
-            bundles.Add(new ScriptBundle("~/Bundles/js")
+            bundles.Add(new StyleBundle("~/Bundles3/css")
+                .Include("~/Content/css/bootstrap.min.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/font-awesome.min.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/AdminLTE.min.css", new CssRewriteUrlTransformAbsolute()));
+
+                     bundles.Add(new ScriptBundle("~/Bundles/js")
                 .Include("~/Content/js/plugins/jquery/jquery-3.3.1.js")
                 .Include("~/Content/js/plugins/bootstrap/bootstrap.js")
                 .Include("~/Content/js/plugins/fastclick/fastclick.js")
@@ -61,6 +66,10 @@ namespace PequiTec.App_Start
                 .Include("~/Scripts/jquery.easing.min.js")
                 .Include("~/Scripts/stylish-portfolio.min.js")
                 .Include("~/Content/js/adminlte.js"));
+
+            bundles.Add(new ScriptBundle("~/Bundles3/js")
+                .Include("~/Scripts/jquery.min.js")
+                .Include("~/Scripts/bootstrap.min.js"));
 
 #if DEBUG
             BundleTable.EnableOptimizations = false;
